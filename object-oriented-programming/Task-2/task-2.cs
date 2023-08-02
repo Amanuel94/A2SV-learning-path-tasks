@@ -41,6 +41,27 @@ public class Library{
             Console.WriteLine($"\t{item.Title}\t{item.MediaType}\t{item.Duration}");
         }
     }
+
+    public List<object> SearchItem(string query){
+        List<object> searchResults = new List<object>();
+        foreach (var book in Books)
+        {
+            if(book.ToString().Split(':').Contains<string>(query)){
+                searchResults.Add(book);
+            }
+            
+        }
+
+        foreach (var media in MediaItems)
+        {
+            if(media.ToString().Split(':').Contains<string>(query)){
+                searchResults.Add(media);
+            }
+            
+        }
+        return searchResults;
+
+    }
 }
 
 public class Book{
@@ -57,9 +78,14 @@ public class Book{
         this.ISBN = ISBN;
         this.PublicationYear = PublicationYear;
         
-        
-
     }
+
+        public override string ToString()
+        {
+            return $"{Title}:{Author}:{ISBN}:{PublicationYear}";
+        }
+
+    
 
 }
 
@@ -74,7 +100,10 @@ public class MediaItem{
         this.Duration = Duration;
     }
 
-
+    public override string ToString()
+        {
+            return $"{Title}:{MediaType}:{Duration}";
+        }
 
 }
 }

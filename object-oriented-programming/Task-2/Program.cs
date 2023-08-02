@@ -67,8 +67,9 @@ namespace Tasks
                                 "\n\t 3. Add Media Item" +
                                 "\n\t 4. Add Media Item" +
                                 "\n\t 5. Print Catalog" +
+                                "\n\t 6. Search Catalog" +
                                 "\n\t 0. Exit";
-                int choice = DisplayPrompt<int>(prompt, 5);
+                int choice = DisplayPrompt<int>(prompt, 6);
 
                 switch (choice){
 
@@ -82,6 +83,15 @@ namespace Tasks
                     case 4: DeleteMedia(library);
                             break;
                     case 5: library.PrintCatalog();
+                            break;
+                    case 6: string query = DisplayPrompt<string>("Enter the search query");
+
+                            foreach (var item in library.SearchItem(query))
+                            {
+                                Console.WriteLine("Search Results");
+                                Console.WriteLine($"{item.ToString()}");
+                            }
+                            
                             break;
                     case 0: Environment.Exit(0); 
                             break;
