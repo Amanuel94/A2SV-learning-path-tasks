@@ -42,3 +42,5 @@
 /home/dirichletian/Documents/A2SV project phase/dotnet/c#/C# tasks/bloggin_app_web/bin/Debug/net7.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
 /home/dirichletian/Documents/A2SV project phase/dotnet/c#/C# tasks/bloggin_app_web/bin/Debug/net7.0/System.CodeDom.dll
 /home/dirichletian/Documents/A2SV project phase/dotnet/c#/C# tasks/bloggin_app_web/bin/Debug/net7.0/Newtonsoft.Json.dll
+/home/dirichletian/Documents/A2SV project phase/dotnet/c#/C# tasks/bloggin_app_web/bin/Debug/net7.0/AutoMapper.dll
+/home/dirichletian/Documents/A2SV project phase/dotnet/c#/C# tasks/bloggin_app_web/bin/Debug/net7.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll

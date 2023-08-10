@@ -1,7 +1,10 @@
 using BloggingApp.Models;
+using BloggingApp.Mapping;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Text;
+using AutoMapper.QueryableExtensions;
+
 namespace BloggingApp.Controllers;
 
 [Route("/api/Posts/{postId}/[controller]")]
@@ -22,7 +25,13 @@ public class CommentsController:ControllerBase{
             return NotFound("Nonexistent post id");
         }
 
-        List<Comment> comments =  await _dbContext.Comments.Where(t=>t.PostId == postId).ToListAsync();
+        // use automapper to create Dtos and avoid circular reference
+        
+        List<CommentDto> comments = await _dbContext.Comments
+                                            .Where(t => t.PostId == postId)
+                                            .ProjectTo<CommentDto>(MapperConfig.Mapper.ConfigurationProvider)
+                                            .ToListAsync();
+
 
         return Ok(comments);
     }
@@ -34,7 +43,7 @@ public class CommentsController:ControllerBase{
         if(Match is null){
             return NotFound();
         }
-        return Ok(Match);
+        return Ok(MapperConfig.Mapper.Map<CommentDto>(Match));
     }
 
     [HttpPost("create")]
