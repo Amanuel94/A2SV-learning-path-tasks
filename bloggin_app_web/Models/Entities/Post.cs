@@ -11,7 +11,7 @@ public partial class Post
 
     public string Content { get; set; } = null!;
     public DateTime CreatedAt {get; set;}
-
+    
     public virtual ICollection<Comment> Comments { get; set; } = new List<Comment>();
 
     public override string ToString()
@@ -23,8 +23,4 @@ public partial class Post
         return $"Post Title: {Title}\nPost Content: \n\t{Content}";
     }
 
-    internal object? Include(Func<object, object> value)
-    {
-        throw new NotImplementedException();
-    }
 }

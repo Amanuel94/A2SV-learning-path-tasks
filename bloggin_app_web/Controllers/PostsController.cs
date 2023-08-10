@@ -1,3 +1,5 @@
+using AutoMapper.QueryableExtensions;
+using BloggingApp.Mapping;
 using BloggingApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -13,8 +15,12 @@ public class PostsController:ControllerBase{
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetAllPostsAsync(){
-        List<Post> AllPosts = await _dbContext.Posts.ToListAsync();
+    public  async Task<IActionResult> GetAllPostsAsync(){
+        // use automapper to create Dtos and avoid circular reference
+        
+        List<PostDto> AllPosts = await _dbContext.Posts
+                                            .ProjectTo<PostDto>(MapperConfig.Mapper.ConfigurationProvider)
+                                            .ToListAsync();
         return Ok(AllPosts);
     }
 
@@ -25,7 +31,7 @@ public class PostsController:ControllerBase{
         if(Match is null){
             return NotFound();
         }
-        return Ok(Match);
+        return Ok(MapperConfig.Mapper.Map<PostDto>(Match));
     }
 
     [HttpPost("create")]

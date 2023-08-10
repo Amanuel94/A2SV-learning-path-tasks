@@ -13,7 +13,7 @@ public partial class Comment
 
     public DateTime CreatedAt {get; set;}
 
-    public virtual Post Post { get; set; } = null!;
+    public virtual Post Post { get;set;} = null!;
 
     public override string ToString()
     {
