@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "lrvl3kIsv+qBTG0muU8HB65Ehy7zZYgzuIBY1NLtlfk=",
+  "Source": "bloggin_app_web",
+  "BasePath": "_content/bloggin_app_web",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
