@@ -1,6 +1,8 @@
+using BlogApp_CA.Domain.Aggregates;
+
 namespace BlogApp_CA.Domain.Entities;
 
-public class Post: BaseAuditableEntity{
+public class Post: AggregateRoot{
 
 
     public string Title { get; set; } = null!;
