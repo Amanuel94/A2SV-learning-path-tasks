@@ -1,7 +1,7 @@
 using BlogApp_CA.Domain.Exceptions;
 namespace BlogApp_CA.Domain.ValueObjects;
 
-public class PostContent : ValueObject
+public sealed class PostContent : ValueObject
 {
 
     public string Value{get; init;}

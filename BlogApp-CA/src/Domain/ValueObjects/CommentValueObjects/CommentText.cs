@@ -1,7 +1,7 @@
 using BlogApp_CA.Domain.Exceptions;
 namespace BlogApp_CA.Domain.ValueObjects;
 
-public class CommentText : ValueObject
+public sealed class CommentText : ValueObject
 {
 
     public string Value{get; init;}
