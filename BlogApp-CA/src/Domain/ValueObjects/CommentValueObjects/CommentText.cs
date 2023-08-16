@@ -1,11 +1,10 @@
-using BlogApp_CA.Domain.Exceptions;
 namespace BlogApp_CA.Domain.ValueObjects;
 
 public sealed class CommentText : ValueObject
 {
 
     public string Value{get; init;}
-    private readonly int _maxLength = 200;
+    private static readonly int _maxLength = 200;
     private CommentText(string val){
         Value = val;
     }
@@ -14,12 +13,12 @@ public sealed class CommentText : ValueObject
         yield return Value;
     }
 
-    public CommentText? Create(string Content){
+    public static CommentText? Create(string Content){
         if(string.IsNullOrWhiteSpace(Content)){
             throw new InvalidPostContentException("Content can not be null or white space.");
         }
         if(_maxLength < Content.Length){
-            throw new InvalidPostContentException($"Content can not longer than {_maxLength} characters.");
+            throw new InvalidPostContentException($"Content can not longer than {CommentText._maxLength} characters.");
         }
 
         return new CommentText(Content);

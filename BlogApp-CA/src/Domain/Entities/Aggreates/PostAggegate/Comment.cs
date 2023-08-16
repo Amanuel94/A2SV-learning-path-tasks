@@ -5,7 +5,7 @@ public class Comment: BaseAuditableEntity{
 
     public int PostId { get; set; }
 
-    public string Text { get; set; } = null!;
+    public CommentText Text { get; set; } = null!;
 
     public virtual required Post Post { get; set; }
 
