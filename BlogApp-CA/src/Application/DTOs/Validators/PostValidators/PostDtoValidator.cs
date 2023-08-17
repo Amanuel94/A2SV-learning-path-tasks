@@ -13,11 +13,11 @@ public class PostDtoValidator : AbstractValidator<PostDto>
         RuleFor(p=>p.Title)
             .NotEmpty().WithMessage("{PropertyName} can not be empty")
             .NotNull();
-        RuleFor(p=>p.id)
-            .MustAsync(async (id, token)=>{
-                var post = await _postRepository.GetAsync(id);
-                return post != null;
-            });
+        // RuleFor(p=>p.id)
+        //     .MustAsync(async (id, token)=>{
+        //         var post = await _postRepository.GetAsync(id);
+        //         return post != null;
+        //     });
 
     }
 

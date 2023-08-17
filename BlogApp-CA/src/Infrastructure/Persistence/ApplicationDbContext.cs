@@ -43,9 +43,9 @@ public class ApplicationDbContext : DbContext
     {
         foreach (var entry in ChangeTracker.Entries<BaseAuditableEntity>())
         {
-            entry.Entity.ModifiedAt = DateTime.Now;
+            entry.Entity.ModifiedAt = DateTime.Now.ToUniversalTime();
             if(entry.State == EntityState.Added){
-                entry.Entity.CreatedAt = DateTime.Now;
+                entry.Entity.CreatedAt = DateTime.Now.ToUniversalTime();
             }
         }
 
