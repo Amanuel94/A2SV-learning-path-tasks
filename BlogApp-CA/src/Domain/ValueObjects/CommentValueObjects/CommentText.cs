@@ -5,6 +5,11 @@ public sealed class CommentText : ValueObject
 
     public string Value{get; init;}
     private static readonly int _maxLength = 200;
+
+    private CommentText()
+    {
+        
+    }
     private CommentText(string val){
         Value = val;
     }

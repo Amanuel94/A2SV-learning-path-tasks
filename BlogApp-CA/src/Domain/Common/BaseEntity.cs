@@ -4,6 +4,10 @@ namespace BlogApp_CA.Domain.Common;
 
 public abstract class BaseEntity
 {
+    public BaseEntity()
+    {
+        
+    }
     public int Id { get; set; }
 
     public List<BaseEvent> DomainEvents = new();

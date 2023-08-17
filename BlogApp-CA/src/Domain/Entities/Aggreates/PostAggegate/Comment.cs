@@ -2,7 +2,10 @@ namespace BlogApp_CA.Domain.Entities;
 
 public class Comment: BaseAuditableEntity{
 
-
+    public Comment()
+    {
+        
+    }
     public int PostId { get; set; }
 
     public CommentText Text { get; set; } = null!;

@@ -4,6 +4,11 @@ namespace BlogApp_CA.Domain.ValueObjects;
 public  sealed class PostTitle : ValueObject
 {
 
+
+    private PostTitle()
+    {
+        
+    }
     public string Value{get; init;}
     private static readonly int _maxLength = 50;
     private PostTitle(string val){

@@ -4,7 +4,10 @@ namespace BlogApp_CA.Domain.Entities;
 
 public class Post: AggregateRoot{
 
-
+    public Post()
+    {
+        
+    }
     public PostTitle Title { get; set; } = null!;
 
     public PostContent Content { get; set; } = null!;

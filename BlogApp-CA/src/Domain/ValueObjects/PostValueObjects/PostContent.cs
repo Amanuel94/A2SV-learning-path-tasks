@@ -4,6 +4,10 @@ namespace BlogApp_CA.Domain.ValueObjects;
 public sealed class PostContent : ValueObject
 {
 
+    private PostContent()
+    {
+        
+    }
     public string Value{get; init;}
     private static readonly int _maxLength = 2000;
     private PostContent(string val){

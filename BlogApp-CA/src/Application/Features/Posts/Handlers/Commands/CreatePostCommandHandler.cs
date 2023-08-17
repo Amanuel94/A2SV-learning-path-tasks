@@ -14,6 +14,11 @@ public class CreatePostCommandHandler :PostQueryHandler, IRequestHandler<CreateP
     }
     public async Task<int> Handle(CreatePostCommand request, CancellationToken cancellationToken)
     {
+        PostDtoValidator validator = new PostDtoValidator(_postRepository);
+        var validationResult  = await validator.ValidateAsync(request.PostDTO);
+        if(!validationResult.IsValid){
+            throw new Exception(validationResult.Errors.ToString());
+        }
         var newPost = _mapper.Map<Post>(request.PostDTO);
         var record = await _postRepository.Add(newPost);
         return record.Id;        
