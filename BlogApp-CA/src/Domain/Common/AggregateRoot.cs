@@ -2,6 +2,10 @@
 namespace BlogApp_CA.Domain.Aggregates;
 
 public abstract class AggregateRoot:BaseAuditableEntity{
+    public AggregateRoot()
+    {
+        
+    }
 
 
 }

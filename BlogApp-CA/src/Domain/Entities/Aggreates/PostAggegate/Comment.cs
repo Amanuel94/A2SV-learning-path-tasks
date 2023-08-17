@@ -2,10 +2,13 @@ namespace BlogApp_CA.Domain.Entities;
 
 public class Comment: BaseAuditableEntity{
 
-
+    public Comment()
+    {
+        
+    }
     public int PostId { get; set; }
 
-    public string Text { get; set; } = null!;
+    public CommentText Text { get; set; } = null!;
 
     public virtual required Post Post { get; set; }
 

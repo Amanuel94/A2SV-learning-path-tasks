@@ -4,10 +4,13 @@ namespace BlogApp_CA.Domain.Entities;
 
 public class Post: AggregateRoot{
 
+    public Post()
+    {
+        
+    }
+    public PostTitle Title { get; set; } = null!;
 
-    public string Title { get; set; } = null!;
-
-    public string Content { get; set; } = null!;
+    public PostContent Content { get; set; } = null!;
 
     public virtual ICollection<Comment> Comments { get; set; } = new List<Comment>();
 
